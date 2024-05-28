@@ -1,5 +1,6 @@
 package br.com.surb.course.domain.entities;
 
+import br.com.surb.course.domain.enums.RoleEnum;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -21,6 +22,7 @@ public class User {
     private String name;
     private String email;
     private String password;
+    private  RoleEnum role;
     private  Set<Order> orderSet = new HashSet<>();
     private  Set<OrderStages> stages = new HashSet<>();
 }
