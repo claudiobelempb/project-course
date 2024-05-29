@@ -1,7 +1,7 @@
 package br.com.surb.course.domain.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import br.com.surb.course.domain.enums.StagesEnum;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,11 +18,24 @@ import java.util.Set;
 @Entity
 @Table(name = "tb_order")
 public class Order {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(length = 75, nullable = false)
     private String subject;
+    @Column(columnDefinition = "text")
     private String description;
+    @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
-    private OrderStages state;
+    @Column(length = 12, nullable = false)
+    @Enumerated(EnumType.STRING)
+    private StagesEnum stage;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    @OneToMany(mappedBy = "order")
     private Set<OrderStages> stages = new HashSet<>();
 }
