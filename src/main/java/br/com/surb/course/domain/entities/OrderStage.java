@@ -16,8 +16,8 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "tb_order_stages")
-public class OrderStages implements Serializable {
+@Table(name = "tb_order_stage")
+public class OrderStage implements Serializable {
 
     @Serial
     private static final long serialVersionUID = -6616526008614696994L;

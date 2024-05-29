@@ -38,5 +38,5 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "owner")
     private  Set<Order> orderSet = new HashSet<>();
     @OneToMany(mappedBy = "owner")
-    private  Set<OrderStages> stages = new HashSet<>();
+    private  Set<OrderStage> stages = new HashSet<>();
 }
