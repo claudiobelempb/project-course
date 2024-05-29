@@ -38,8 +38,8 @@ public class Order implements Serializable {
     private StagesEnum stage;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @JoinColumn(name = "owner_id", nullable = false)
+    private User owner;
 
     @OneToMany(mappedBy = "order")
     private Set<OrderStages> stages = new HashSet<>();

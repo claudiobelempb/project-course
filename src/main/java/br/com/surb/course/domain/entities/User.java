@@ -35,8 +35,8 @@ public class User implements Serializable {
     @Enumerated(EnumType.STRING)
     private  RoleEnum role;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "owner")
     private  Set<Order> orderSet = new HashSet<>();
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "owner")
     private  Set<OrderStages> stages = new HashSet<>();
 }
