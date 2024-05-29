@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,7 +18,10 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Table(name = "tb_user")
-public class User {
+public class User implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 6106383878570762215L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

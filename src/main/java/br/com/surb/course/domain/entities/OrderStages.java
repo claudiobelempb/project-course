@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.Date;
 
 @Getter
@@ -15,7 +17,10 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 @Table(name = "tb_order_stages")
-public class OrderStages {
+public class OrderStages implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = -6616526008614696994L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
